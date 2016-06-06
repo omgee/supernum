@@ -6,7 +6,8 @@ public class SupernumTest {
     public static void main(String[] args) {
 
         Supernum number = new Supernum();
-        number.Set("2132843759682593204243544633423");
+        number.Set("1024");
+        number.Addition("9048");
         System.out.println(number.Get());
 
     }
