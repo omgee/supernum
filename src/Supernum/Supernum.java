@@ -72,14 +72,14 @@ public class Supernum {
         int T = F > S ? F : S;
         int Inc = 0;
 
-        Tmp.add(0);
-
         for (int P = 0; P < T; P++) {
+
+            Tmp.add(0);
 
             if (P <= F - 1) Tmp.set(P, this.Number.get(P) + Tmp.get(P));
             if (P <= S - 1) Tmp.set(P, Array.get(P) + Tmp.get(P));
 
-            if (Tmp.get(P) > 10) {
+            if (Tmp.get(P) >= 10) {
 
                 Inc++;
                 Tmp.set(P, Tmp.get(P) % 10);
@@ -87,12 +87,26 @@ public class Supernum {
             }
 
             // Не трогать ! Без этого хуёво работает !
-            if (P != T - 1) Tmp.add(Inc);
+            if (Inc > 0) Tmp.add(Inc);
             Inc = 0;
 
         }
 
         this.Number = Tmp;
+
+    }
+
+    /**
+     * Experimental feature !
+     * @param Number Number to multi
+     */
+    public void Multiplication(Integer Number) {
+
+        for (int i = 0; i < Number - 1; i++) {
+
+            Addition(Get());
+
+        }
 
     }
 
